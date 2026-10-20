@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="robots" content="index, follow">
+<meta name="author" content="AincodeLab">
+
+<title>Data Absen Media Sosial TPP PLD PD TA - AincodeLab</title>
+<meta name="description" content="Website data absen media sosial untuk Tenaga Pendamping Profesional (TPP) yang mencakup PLD, PD, dan TA. Pantau dan kelola keaktifan media sosial pendamping desa.">
+<meta name="keywords" content="data absen media sosial, TPP, PLD, PD, TA, pendamping desa, tenaga pendamping profesional, absen medsos, pendamping lokal desa, tenaga ahli, AincodeLab">
+
+<link rel="canonical" href="https://aincodelab.github.io/tppmedsos">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aincodelab.github.io/tppmedsos">
+<meta property="og:title" content="Data Absen Media Sosial TPP PLD PD TA - AincodeLab">
+<meta property="og:description" content="Pantau data absen media sosial Tenaga Pendamping Profesional (TPP): PLD, PD, dan TA. Kelola keaktifan media sosial pendamping desa secara terpusat.">
+<meta property="og:site_name" content="AincodeLab Medsos">
+<meta property="og:locale" content="id_ID">
+<meta property="og:image" content="https://aincodelab.github.io/tppmedsos/preview-medsos.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Data Absen Media Sosial TPP PLD PD TA">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://aincodelab.github.io/tppmedsos">
+<meta name="twitter:title" content="Data Absen Media Sosial TPP PLD PD TA - AincodeLab">
+<meta name="twitter:description" content="Pantau data absen media sosial Tenaga Pendamping Profesional (TPP): PLD, PD, dan TA.">
+<meta name="twitter:image" content="https://aincodelab.github.io/tppmedsos/preview.jpg">
+<meta name="twitter:image:alt" content="Data Absen Media Sosial TPP PLD PD TA">
+
+<link rel="icon" type="image/png" href="https://aincodelab.github.io/tppmedsos/mylogo.png">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background: #e8ecf3;
+    min-height: 100vh;
+    color: #333;
+    overflow-x: hidden;
+  }
+
+  .app-shell {
+    max-width: 520px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: #f5f7fb;
+    position: relative;
+    padding-bottom: 126px;
+    box-shadow: 0 0 60px rgba(30,60,114,0.15);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .app-header {
+    background: linear-gradient(135deg, #1e7241 0%, #2a5298 100%);
+    color: #fff;
+    padding: 16px 18px 14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(30,60,114,0.25);
+  }
+  .app-header h1 {
+    font-size: 17px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.2px;
+  }
+  .app-header .last-update {
+    font-size: 11px;
+    opacity: 0.92;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 400;
+  }
+  .last-update .dot,
+  .data-top-bar .dot {
+    width: 7px; height: 7px;
+    background: #4ade80;
+    border-radius: 50%;
+    display: inline-block;
+    flex: 0 0 auto;
+    animation: pulse 2s infinite;
+    box-shadow: 0 0 6px rgba(74,222,128,0.7);
+  }
+  .last-update .dot.offline,
+  .data-top-bar .dot.offline {
+    background: #fbbf24;
+    box-shadow: 0 0 6px rgba(251,191,36,0.7);
+    animation: none;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+
+  .view {
+    display: none;
+    flex: 1;
+    padding: 14px;
+    animation: fadeIn 0.3s ease;
+  }
+  .view.active { display: block; }
+
+  .data-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e1e6f2;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(30,60,114,0.05);
+    flex-wrap: wrap;
+  }
+  .data-top-left {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .data-top-label {
+    color: #6b7794;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 10px;
+  }
+  .data-top-value {
+    color: #1e3c72;
+    font-weight: 600;
+    font-size: 11.5px;
+    text-align: right;
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+  }
+
+  .info-section {
+    background: #fff;
+    border-radius: 14px;
+    padding: 14px 16px;
+    border: 1px solid #e1e6f2;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 14px rgba(30,60,114,0.05);
+  }
+  .info-section h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #2a5298;
+    letter-spacing: 0.6px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid #f0f2f7;
+    font-size: 12.5px;
+    gap: 10px;
+  }
+  .info-row:last-child { border-bottom: none; padding-bottom: 2px; }
+  .info-row .label { color: #6b7794; flex: 0 0 auto; }
+  .info-row .value {
+    font-weight: 600;
+    color: #1e3c72;
+    text-align: right;
+    word-break: break-word;
+    font-size: 12px;
+  }
+  .info-row .value.highlight {
+    background: #e6f7ec;
+    color: #1e7a3d;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .info-row .value.highlight.off {
+    background: #fdecea;
+    color: #a11a1a;
+  }
+  .info-row .value.countdown {
+    background: #fff8e1;
+    color: #8a6100;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .filter-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 14px 16px;
+    border: 1px solid #e1e6f2;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 14px rgba(30,60,114,0.05);
+  }
+  .filter-card h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #2a5298;
+    letter-spacing: 0.6px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  .filter-bar .filter-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 130px;
+    flex: 1;
+    max-width: 100%;
+  }
+  .filter-bar label {
+    font-size: 11px;
+    color: #2a5298;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .filter-bar select {
+    padding: 8px 10px;
+    font-family: inherit;
+    font-size: 12.5px;
+    border: 1px solid #cfd6e4;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    width: 100%;
+    color: #333;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .filter-bar select:focus {
+    outline: none;
+    border-color: #2a5298;
+    box-shadow: 0 0 0 3px rgba(42,82,152,0.12);
+  }
+  .filter-bar select.active {
+    border-color: #2a5298;
+    background: #f0f6ff;
+    font-weight: 600;
+    color: #1e3c72;
+  }
+  .btn-reset {
+    padding: 8px 14px;
+    font-size: 11.5px;
+    background: transparent;
+    color: #2a5298;
+    border: 1px dashed #cfd6e4;
+    border-radius: 8px;
+    flex: 0 0 auto;
+    min-width: auto;
+    align-self: flex-end;
+    margin-bottom: 1px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    transition: background 0.15s;
+  }
+  .btn-reset:hover { background: #eef1f7; }
+
+  .filter-count {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, #e6f7ec, #d4f0df);
+    border-radius: 10px;
+    font-size: 12px;
+    color: #1e7a3d;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #b8e6cc;
+    gap: 10px;
+    animation: fadeIn 0.25s ease;
+  }
+  .filter-count.show { display: flex; }
+  .filter-count.active {
+    background: linear-gradient(135deg, #fff8e1, #fef3c7);
+    color: #8a6100;
+    border-color: #fcd34d;
+  }
+  .filter-count .fc-label {
+    font-weight: 700;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .filter-count .fc-value {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: right;
+  }
+  .filter-count .fc-value b {
+    font-size: 15px;
+    color: inherit;
+    font-weight: 800;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 26px;
+    flex: 0 0 auto;
+  }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .switch .slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #cbd5e1;
+    transition: 0.3s;
+    border-radius: 26px;
+  }
+  .switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #fff;
+    transition: 0.3s;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  }
+  .switch input:checked + .slider { background-color: #28a745; }
+  .switch input:checked + .slider:before { transform: translateX(20px); }
+  .switch input:focus-visible + .slider { box-shadow: 0 0 0 3px rgba(40,167,69,0.3); }
+
+  .hint-box {
+    background: linear-gradient(135deg, #f0f6ff, #e8f0fb);
+    border: 1px dashed #b9cbe8;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 11.5px;
+    color: #3a5580;
+    line-height: 1.65;
+  }
+  .hint-box b { color: #1e3c72; }
+
+  .status {
+    margin: 0 0 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 12.5px;
+    display: none;
+    line-height: 1.5;
+  }
+  .status.show { display: block; animation: fadeIn 0.3s ease; }
+  .status.success { background: #e6f7ec; color: #1e7a3d; border-left: 4px solid #28a745; }
+  .status.error   { background: #fdecea; color: #a11a1a; border-left: 4px solid #dc3545; }
+  .status.loading { background: #fff8e1; color: #8a6100; border-left: 4px solid #ffc107; }
+
+  .table-wrap {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #e1e6f2;
+    background: #fff;
+    display: none;
+    box-shadow: 0 4px 14px rgba(30,60,114,0.05);
+  }
+  .table-wrap.show { display: block; animation: fadeIn 0.4s ease; }
+
+  .table-header-bar {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .table-header-bar .badge {
+    background: rgba(255,255,255,0.22);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10.5px;
+    font-weight: 500;
+  }
+
+  .table-scroll { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; background: #fff; }
+  thead th {
+    background: #eef1f7;
+    color: #1e3c72;
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 2px solid #d5dbe8;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease;
+    font-size: 12px;
+  }
+  thead th:hover { background: #e3e8f3; }
+  thead th .sort-icon {
+    display: inline-block;
+    margin-left: 5px;
+    color: #9aa8c7;
+    font-size: 10px;
+    font-weight: normal;
+  }
+  thead th.sorted { background: #dbe4f5; }
+  thead th.sorted .sort-icon { color: #1e3c72; }
+
+  tbody td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #f0f2f7;
+    color: #333;
+    vertical-align: top;
+    font-weight: 400;
+    line-height: 1.45;
+  }
+  tbody tr:nth-child(even) { background: #fafbff; }
+
+  tbody tr.clickable { cursor: pointer; transition: background 0.15s ease; }
+  tbody tr.clickable:hover { background: #eef1f7; }
+  tbody tr.clickable.row-active { background: #dbe4f5 !important; }
+  tbody tr.clickable.row-active td { color: #1e3c72; }
+
+  .empty-msg {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+    font-size: 13px;
+  }
+
+  tbody tr.detail-row,
+  tbody tr.detail-row:hover,
+  tbody tr.detail-row:nth-child(even) { background: #fff !important; }
+  tbody tr.detail-row td {
+    padding: 0 !important;
+    border-bottom: 1px solid #e1e6f2 !important;
+  }
+  .detail-card {
+    background: linear-gradient(135deg, #f7f9ff 0%, #eef1f7 100%);
+    border: 1px solid #d5dbe8;
+    border-left: 4px solid #2a5298;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 8px 6px 12px;
+    box-shadow: 0 6px 18px rgba(30,60,114,0.10);
+    animation: fadeIn 0.25s ease;
+  }
+  .detail-card .detail-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #1e3c72;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #cfd6e4;
+  }
+  .detail-card .detail-close {
+    font-size: 11.5px;
+    font-weight: 600;
+    background: #fff;
+    color: #a11a1a;
+    border: 1px solid #f3c8c8;
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    flex: 0 0 auto;
+    font-family: inherit;
+  }
+  .detail-card .detail-close:hover { background: #fdecea; border-color: #dc3545; }
+  .detail-card .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .detail-card .detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 7px 9px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e1e6f2;
+    min-width: 0;
+  }
+  .detail-card .detail-item .k {
+    font-size: 10px;
+    font-weight: 700;
+    color: #2a5298;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .detail-card .detail-item .v {
+    font-size: 12.5px;
+    color: #333;
+    font-weight: 400;
+    word-break: break-word;
+  }
+
+  #emptyDataView {
+    text-align: center;
+    padding: 50px 20px;
+    color: #8a94a8;
+  }
+  #emptyDataView .emoji { font-size: 48px; margin-bottom: 14px; line-height: 1; }
+  #emptyDataView .title { font-size: 15px; font-weight: 600; color: #1e3c72; margin-bottom: 6px; }
+  #emptyDataView .sub { font-size: 12.5px; line-height: 1.6; margin-bottom: 20px; }
+
+  .btn-load {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(30,60,114,0.35);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .btn-load:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(30,60,114,0.45);
+  }
+  .btn-load:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  /* ============ REFILL VIEW ============ */
+  .refill-hero {
+    background: linear-gradient(135deg, #594bd4 0%, #1e3c72 100%);
+    color: #fff;
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 8px 24px rgba(30,60,114,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .refill-hero::before {
+    content: '';
+    position: absolute;
+    top: -40%; right: -10%;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .refill-hero .rh-icon {
+    font-size: 26px;
+    margin-bottom: 4px;
+    display: block;
+    line-height: 1;
+  }
+  .refill-hero h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
+  }
+  .refill-hero p {
+    font-size: 11.5px;
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+
+  .refill-form-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid #e1e6f2;
+    box-shadow: 0 4px 14px rgba(30,60,114,0.05);
+    margin-bottom: 12px;
+  }
+  .refill-form-card h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #2a5298;
+    letter-spacing: 0.6px;
+    margin-bottom: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .refill-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+  .refill-field:last-child { margin-bottom: 0; }
+  .refill-field label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #2a5298;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    line-height: 1.3;
+  }
+  .refill-field label .req {
+    color: #dc3545;
+    font-weight: 700;
+  }
+  .refill-field label .entry-key {
+    font-family: 'Consolas', monospace;
+    font-size: 9px;
+    color: #8a94a8;
+    font-weight: 400;
+    background: #f0f2f7;
+    padding: 1px 5px;
+    border-radius: 4px;
+    margin-left: auto;
+  }
+  .refill-field input,
+  .refill-field textarea {
+    padding: 10px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    border: 1px solid #cfd6e4;
+    border-radius: 8px;
+    background: #fff;
+    color: #333;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    width: 100%;
+    resize: vertical;
+    line-height: 1.45;
+  }
+  .refill-field textarea { min-height: 60px; }
+  .refill-field input:focus,
+  .refill-field textarea:focus {
+    outline: none;
+    border-color: #2a5298;
+    box-shadow: 0 0 0 3px rgba(42,82,152,0.12);
+  }
+  .refill-field input.invalid,
+  .refill-field textarea.invalid {
+    border-color: #dc3545;
+    background: #fef6f6;
+    box-shadow: 0 0 0 3px rgba(220,53,69,0.10);
+  }
+
+  /* Aksi tombol refill */
+  .refill-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+  .btn-generate,
+  .btn-open {
+    flex: 1;
+    padding: 13px 18px;
+    font-size: 13.5px;
+    font-weight: 700;
+    font-family: inherit;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-width: 130px;
+  }
+  .btn-generate {
+    background: linear-gradient(135deg, #1e7241, #2e9c5b);
+    box-shadow: 0 6px 18px rgba(30,114,65,0.35);
+  }
+  .btn-generate:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(30,114,65,0.45);
+  }
+  .btn-open {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    box-shadow: 0 6px 18px rgba(30,60,114,0.35);
+  }
+  .btn-open:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(30,60,114,0.45);
+  }
+  .btn-generate:active:not(:disabled),
+  .btn-open:active:not(:disabled) { transform: scale(0.98); }
+
+  .btn-generate:disabled,
+  .btn-open:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+    background: linear-gradient(135deg, #9ca3af, #cbd5e1);
+  }
+
+  .btn-reset-default {
+    flex: 0 0 auto;
+    padding: 13px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: inherit;
+    background: #f5f7fb;
+    color: #2a5298;
+    border: 1px solid #cfd6e4;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .btn-reset-default:hover { background: #eef1f7; }
+
+  .refill-preview {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: #f7f9ff;
+    border-radius: 10px;
+    border: 1px solid #e1e6f2;
+  }
+  .rp-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #2a5298;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+  .rp-copy {
+    background: #fff;
+    border: 1px solid #cfd6e4;
+    color: #2a5298;
+    font-size: 10px;
+    font-family: inherit;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .rp-copy:hover { background: #eef1f7; }
+  .rp-url {
+    font-family: 'Consolas', monospace;
+    font-size: 10.5px;
+    color: #1e3c72;
+    word-break: break-all;
+    line-height: 1.5;
+    max-height: 120px;
+    overflow-y: auto;
+    user-select: all;
+  }
+
+  .refill-status {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 12px;
+    display: none;
+    line-height: 1.5;
+  }
+  .refill-status.show { display: block; animation: fadeIn 0.3s ease; }
+  .refill-status.success { background: #e6f7ec; color: #1e7a3d; border-left: 4px solid #28a745; }
+  .refill-status.error   { background: #fdecea; color: #a11a1a; border-left: 4px solid #dc3545; }
+
+  /* ============ COUNTDOWN BAR ============ */
+  .countdown-bar {
+    position: fixed;
+    bottom: 78px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 520px;
+    padding: 9px 14px 10px;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e7241 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+    color: #fff;
+    z-index: 190;
+    box-shadow: 0 -4px 20px rgba(30,60,114,0.35);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    overflow: hidden;
+    transition: background 0.3s ease;
+  }
+  .countdown-bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.12) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .countdown-bar.off {
+    background: linear-gradient(135deg, #6b7280, #9ca3af);
+    animation: none;
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
+  }
+  .countdown-bar.flash { animation: flashUpdate 1.2s ease; }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  @keyframes flashUpdate {
+    0% { background: linear-gradient(135deg, #16a34a, #22c55e); }
+    50% { background: linear-gradient(135deg, #4ade80, #86efac); }
+    100% { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e7241 100%); }
+  }
+
+  .cd-icon {
+    font-size: 15px;
+    flex: 0 0 auto;
+    line-height: 1;
+    animation: pulse 2s infinite;
+  }
+  .countdown-bar.off .cd-icon { animation: none; opacity: 0.7; }
+  .cd-text {
+    font-size: 10.5px;
+    font-weight: 700;
+    flex: 0 0 auto;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    opacity: 0.92;
+    white-space: nowrap;
+  }
+  .countdown-bar.off .cd-text { opacity: 0.75; }
+  .cd-time {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    flex: 0 0 auto;
+    background: rgba(255,255,255,0.20);
+    padding: 2px 8px;
+    border-radius: 6px;
+    min-width: 54px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.15);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+  .countdown-bar.off .cd-time {
+    background: rgba(0,0,0,0.15);
+    border-color: rgba(255,255,255,0.1);
+  }
+  .cd-progress-wrap {
+    flex: 1;
+    height: 6px;
+    background: rgba(0,0,0,0.20);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.15);
+  }
+  .cd-progress {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #4ade80 0%, #fbbf24 60%, #f87171 100%);
+    border-radius: 3px;
+    transition: width 1s linear;
+    box-shadow: 0 0 8px rgba(74,222,128,0.6);
+    position: relative;
+  }
+  .cd-progress::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 20px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6));
+    animation: shimmer 1.5s ease infinite;
+  }
+  .countdown-bar.off .cd-progress {
+    background: linear-gradient(90deg, #9ca3af, #d1d5db);
+    box-shadow: none;
+  }
+  .countdown-bar.off .cd-progress::after { animation: none; }
+  @keyframes shimmer {
+    0% { transform: translateX(-20px); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(20px); opacity: 0; }
+  }
+
+  /* ============ BOTTOM NAV ============ */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 520px;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 7px 4px 9px;
+    border-top: 1px solid #e1e6f2;
+    box-shadow: 0 -6px 24px rgba(30,60,114,0.10);
+    z-index: 200;
+  }
+  .nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 6px 1px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 9px;
+    font-weight: 600;
+    color: #9aa8c7;
+    transition: all 0.2s ease;
+    border-radius: 10px;
+    margin: 0 1px;
+    position: relative;
+    min-width: 0;
+  }
+  .nav-item .nav-icon {
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+  }
+  .nav-item span:not(.nav-icon):not(.nav-badge) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  .nav-item.active { color: #1e3c72; background: #eef1f7; }
+  .nav-item.active .nav-icon { transform: scale(1.15); }
+  .nav-item:hover:not(:disabled) { color: #2a5298; }
+  .nav-item:disabled { opacity: 0.55; cursor: not-allowed; }
+  .nav-item .nav-badge {
+    position: absolute;
+    top: 3px;
+    right: 20%;
+    width: 7px; height: 7px;
+    background: #dc3545;
+    border-radius: 50%;
+    display: none;
+  }
+  .nav-item.has-badge .nav-badge { display: block; }
+
+  .nav-item.loading .nav-icon {
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    font-size: 0 !important;
+    line-height: 0;
+    color: #1e3c72;
+  }
+  .nav-item.loading { pointer-events: none; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (min-width: 600px) {
+    body { padding: 20px 16px; }
+    .app-shell {
+      border-radius: 20px;
+      min-height: calc(100vh - 40px);
+      padding-bottom: 126px;
+      overflow: hidden;
+    }
+    .app-header { border-radius: 20px 20px 0 0; }
+    .bottom-nav {
+      border-radius: 0 0 20px 20px;
+      bottom: 20px;
+    }
+    .countdown-bar {
+      bottom: 98px;
+      border-radius: 0;
+    }
+    .detail-card .detail-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+  }
+
+  @media (max-width: 380px) {
+    .app-header h1 { font-size: 15.5px; }
+    .nav-item { font-size: 8.5px; }
+    .nav-item .nav-icon { font-size: 17px; width: 20px; height: 20px; }
+    .filter-bar .filter-item { min-width: 100%; }
+    .cd-text { display: none; }
+    .cd-time { min-width: 48px; font-size: 12px; }
+    .refill-actions { flex-direction: column; }
+    .btn-generate, .btn-open, .btn-reset-default { width: 100%; min-width: 0; flex: 1 1 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app-shell">
+  <header class="app-header">
+    <h1>📊 Data Medsos TPP</h1>
+    <div class="last-update">
+      <span class="dot" id="statusDot"></span>
+      <span id="lastUpdateHeader">Belum ada update</span>
+    </div>
+  </header>
+
+  <div id="homeView" class="view active">
+    <div class="info-section">
+      <h3>ℹ️ Informasi Update</h3>
+      <div class="info-row">
+        <span class="label">Update terakhir</span>
+        <span class="value" id="lastUpdateHome">—</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Auto update (5 menit)</span>
+        <label class="switch">
+          <input type="checkbox" id="autoToggle" checked onchange="onAutoToggleChange(this)">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="info-row">
+        <span class="label">Status auto</span>
+        <span class="value highlight" id="autoStatusText">Aktif</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Update berikutnya</span>
+        <span class="value countdown" id="countdown">--:--</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Total data</span>
+        <span class="value" id="totalDataInfo">—</span>
+      </div>
+    </div>
+
+    <div class="filter-card" id="filterCard" style="display:none;">
+      <h3>🔍 Filter Data</h3>
+      <div id="filterBar" class="filter-bar"></div>
+      <div class="filter-count" id="filterCount">
+        <span class="fc-label">Hasil filter</span>
+        <span class="fc-value"><b id="filterCountValue">0</b> dari <b id="filterCountTotal">0</b> baris</span>
+      </div>
+    </div>
+
+    <div class="hint-box">
+      💡 Data diperbarui <b>otomatis setiap 5 menit</b> saat halaman terbuka.
+      Gunakan <b>filter</b> di atas untuk menyaring data — jumlah baris otomatis
+      menyesuaikan dan tabel di tab <b>📋 Data</b> ikut terfilter.
+      Navigasi bawah: <b>⚡ Update</b> untuk ambil data terbaru, <b>🔁 Refresh</b> untuk muat ulang,
+      atau <b>📝 Refill</b> untuk membuka Google Form pengisian.
+    </div>
+  </div>
+
+  <div id="dataView" class="view">
+    <div class="data-top-bar">
+      <div class="data-top-left">
+        <span class="dot" id="dataStatusDot"></span>
+        <span class="data-top-label">Update terakhir</span>
+      </div>
+      <span class="data-top-value" id="dataLastUpdate">Belum ada update</span>
+    </div>
+
+    <div id="status" class="status"></div>
+
+    <div id="emptyDataView">
+      <div class="emoji">📭</div>
+      <div class="title">Belum Ada Data</div>
+      <div class="sub">Tap tombol di bawah untuk memuat data dari sumber.</div>
+      <button class="btn-load" id="emptyLoadBtn" onclick="runImport()">
+        ⚡ Muat Data Sekarang
+      </button>
+    </div>
+
+    <div id="tableWrap" class="table-wrap">
+      <div class="table-header-bar">
+        <span>Hasil Tabel</span>
+        <span class="badge" id="tableBadge">0 baris</span>
+      </div>
+      <div class="table-scroll">
+        <table id="resultTable">
+          <thead id="tableHead"></thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="refillView" class="view">
+    <div class="refill-hero">
+      <span class="rh-icon">📝</span>
+      <h2>Refill Data Google Form</h2>
+      <p>Isi semua field, klik <b>⚡ Generate</b> untuk membuat URL, lalu klik <b>🚀 Buka</b> untuk membuka Google Form di tab baru dengan data terisi otomatis.</p>
+    </div>
+
+    <div class="refill-form-card">
+      <h3>⚙️ Input Data</h3>
+      <div id="refillFormContainer"></div>
+
+      <div class="refill-actions">
+        <button class="btn-generate" id="btnGenerateRefill" onclick="generateRefillUrl()">
+          ⚡ Generate
+        </button>
+        <button class="btn-open" id="btnOpenRefill" onclick="openGeneratedUrl()" disabled>
+          🚀 Buka
+        </button>
+        <button class="btn-reset-default" onclick="resetRefillToDefault()">
+          ↺ Reset
+        </button>
+      </div>
+    </div>
+
+    <div class="refill-preview">
+      <div class="rp-label">
+        <span>🔗 URL Hasil Generate</span>
+        <button class="rp-copy" onclick="copyRefillUrl()">📋 Copy</button>
+      </div>
+      <div class="rp-url" id="refillPreviewUrl">Klik <b>⚡ Generate</b> untuk membuat URL...</div>
+    </div>
+
+    <div class="refill-status" id="refillStatus"></div>
+  </div>
+
+  <div class="countdown-bar off" id="countdownBar" role="status" aria-live="polite">
+    <span class="cd-icon" id="cdIcon">⏱️</span>
+    <span class="cd-text" id="cdText">Menunggu data</span>
+    <span class="cd-time" id="cdTimeBar">--:--</span>
+    <div class="cd-progress-wrap">
+      <div class="cd-progress" id="cdProgress"></div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <button class="nav-item active" id="navHome" onclick="showView('home')">
+      <span class="nav-icon">🏠</span>
+      <span>Home</span>
+    </button>
+    <button class="nav-item" id="navData" onclick="showView('data')">
+      <span class="nav-icon">📋</span>
+      <span>Data</span>
+      <span class="nav-badge" id="dataBadge"></span>
+    </button>
+    <button class="nav-item" id="navRefresh" onclick="runRefresh()">
+      <span class="nav-icon">🔁</span>
+      <span>Refresh</span>
+    </button>
+    <button class="nav-item" id="navUpdate" onclick="runImport()">
+      <span class="nav-icon">⚡</span>
+      <span>Update</span>
+    </button>
+    <button class="nav-item" id="navRefill" onclick="showView('refill')">
+      <span class="nav-icon">📝</span>
+      <span>Refill</span>
+    </button>
+  </nav>
+</div>
+
+<script>
+  /* ==========================================================
+   * 🔧 KONFIGURASI APPS SCRIPT
+   * ========================================================== */
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwugzNTOR3qKxa0dpckkwf0ESQM8BhahPe8TjD6waBymcyvanhW9nSnr8XQLa5lnxDQ/exec';
+
+  /* ==========================================================
+   * 📝 REFILL CONFIG — GLOBAL DEFAULT
+   * ========================================================== */
+  const REFILL_CONFIG = {
+    baseUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSemUuofcfuMck5nRaeabMmwI6e0YKj98xa9Hrwq0k4uOb9m8w/viewform',
+    usp: 'pp_url',
+    fields: [
+      {
+        key: 'entry.975196379',
+        name: 'Nomor Registrasi / ID',
+        placeholder: 'Contoh: 745020',
+        default: '745020',
+        required: true,
+        type: 'text'
+      },
+      {
+        key: 'entry.963401067',
+        name: 'URL X / Twitter',
+        placeholder: 'https://x.com/username',
+        default: 'https://x.com/tpp740228',
+        required: true,
+        type: 'url'
+      },
+      {
+        key: 'entry.277913857',
+        name: 'URL Facebook',
+        placeholder: 'https://www.facebook.com/username',
+        default: 'https://www.facebook.com/ainul.arif.740228',
+        required: true,
+        type: 'url'
+      },
+      {
+        key: 'entry.242763561',
+        name: 'URL Instagram',
+        placeholder: 'https://www.instagram.com/username/',
+        default: 'https://www.instagram.com/ainularif740228/',
+        required: true,
+        type: 'url'
+      },
+      {
+        key: 'entry.827751346',
+        name: 'URL TikTok',
+        placeholder: 'https://www.tiktok.com/@username',
+        default: 'https://www.tiktok.com/@tpp.740228',
+        required: true,
+        type: 'url'
+      },
+      {
+        key: 'entry.1264438366',
+        name: 'URL Website Desa / SIPD (pisah dengan ";")',
+        placeholder: 'https://situs1.desa.id/; https://situs2.sipdk.id/',
+        default: 'https://www.ulubenua.desa.id/; https://amonggedo.sipdk.id/',
+        required: true,
+        type: 'urls'
+      }
+    ]
+  };
+
+  const AUTO_REFRESH_INTERVAL = 5 * 60 * 1000;
+  const MOBILE_BREAKPOINT = 900;
+  const REFILL_STORAGE_KEY = 'refill_values_v2';
+
+  let currentTable = null;
+  let sortState    = { colIdx: null, dir: 'asc' };
+  let filterState  = {};
+  let activeView   = 'home';
+  let lastUpdateTime = null;
+  let autoRefreshEnabled = true;
+  let autoRefreshTimer = null;
+  let countdownTimer = null;
+  let nextRefreshTime = null;
+  let hasLoadedOnce = false;
+  let totalRowsCount = 0;
+  let filteredRowsCount = 0;
+
+  // URL hasil generate terakhir — di-cache agar tombol Buka tinggal memakainya
+  let currentGeneratedUrl = null;
+
+  const statusEl         = document.getElementById('status');
+  const tableWrap        = document.getElementById('tableWrap');
+  const tableHead        = document.getElementById('tableHead');
+  const tableBody        = document.getElementById('tableBody');
+  const tableBadge       = document.getElementById('tableBadge');
+  const filterBar        = document.getElementById('filterBar');
+  const filterCard       = document.getElementById('filterCard');
+  const filterCount      = document.getElementById('filterCount');
+  const filterCountValue = document.getElementById('filterCountValue');
+  const filterCountTotal = document.getElementById('filterCountTotal');
+  const emptyDataView    = document.getElementById('emptyDataView');
+  const emptyLoadBtn     = document.getElementById('emptyLoadBtn');
+  const statusDot        = document.getElementById('statusDot');
+  const dataStatusDot    = document.getElementById('dataStatusDot');
+  const navHome          = document.getElementById('navHome');
+  const navData          = document.getElementById('navData');
+  const navRefresh       = document.getElementById('navRefresh');
+  const navUpdate        = document.getElementById('navUpdate');
+  const navRefill        = document.getElementById('navRefill');
+  const dataBadge        = document.getElementById('dataBadge');
+  const autoToggleEl     = document.getElementById('autoToggle');
+  const totalDataInfoEl  = document.getElementById('totalDataInfo');
+
+  const countdownBar   = document.getElementById('countdownBar');
+  const cdIcon         = document.getElementById('cdIcon');
+  const cdText         = document.getElementById('cdText');
+  const cdTimeBar      = document.getElementById('cdTimeBar');
+  const cdProgress     = document.getElementById('cdProgress');
+
+  const refillFormContainer = document.getElementById('refillFormContainer');
+  const refillPreviewUrl    = document.getElementById('refillPreviewUrl');
+  const refillStatus        = document.getElementById('refillStatus');
+  const btnGenerateRefill   = document.getElementById('btnGenerateRefill');
+  const btnOpenRefill       = document.getElementById('btnOpenRefill');
+
+  function isNarrowView() { return window.innerWidth <= MOBILE_BREAKPOINT; }
+  function visibleColumnCount(total) { return isNarrowView() ? Math.min(2, total) : total; }
+
+  function escapeHtml(s) {
+    return String(s ?? '')
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function pad2(n) { return String(n).padStart(2, '0'); }
+
+  function formatDateTime(date) {
+    const days = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+    const months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+    const d = new Date(date);
+    return `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()} · ${pad2(d.getHours())}:${pad2(d.getMinutes())}:${pad2(d.getSeconds())}`;
+  }
+
+  function setCountdownBarState(state) {
+    if (state === 'loading') {
+      countdownBar.classList.add('off');
+      countdownBar.classList.remove('flash');
+      cdIcon.textContent = '⏱️';
+      cdText.textContent = 'Menunggu data';
+      cdTimeBar.textContent = '--:--';
+      cdProgress.style.width = '0%';
+    } else if (state === 'off') {
+      countdownBar.classList.add('off');
+      countdownBar.classList.remove('flash');
+      cdIcon.textContent = '⏸️';
+      cdText.textContent = 'Auto nonaktif';
+      cdTimeBar.textContent = 'OFF';
+      cdProgress.style.width = '0%';
+    } else {
+      countdownBar.classList.remove('off');
+      cdIcon.textContent = '⏱️';
+      cdText.textContent = 'Auto update';
+    }
+  }
+
+  function flashCountdownBar() {
+    countdownBar.classList.remove('flash');
+    void countdownBar.offsetWidth;
+    countdownBar.classList.add('flash');
+    setTimeout(() => countdownBar.classList.remove('flash'), 1300);
+  }
+
+  function tickCountdownBar() {
+    if (!nextRefreshTime) return;
+    const remaining = Math.max(0, nextRefreshTime - Date.now());
+    const min = Math.floor(remaining / 60000);
+    const sec = Math.floor((remaining % 60000) / 1000);
+    cdTimeBar.textContent = pad2(min) + ':' + pad2(sec);
+    const pct = Math.max(0, Math.min(100, (remaining / AUTO_REFRESH_INTERVAL) * 100));
+    cdProgress.style.width = pct + '%';
+    const homeCd = document.getElementById('countdown');
+    if (homeCd) homeCd.textContent = pad2(min) + ':' + pad2(sec);
+  }
+
+  function showView(name) {
+    activeView = name;
+    const views = {
+      home: document.getElementById('homeView'),
+      data: document.getElementById('dataView'),
+      refill: document.getElementById('refillView')
+    };
+    const navs = { home: navHome, data: navData, refill: navRefill };
+    Object.keys(views).forEach(k => {
+      if (k === name) views[k].classList.add('active');
+      else            views[k].classList.remove('active');
+      if (navs[k]) {
+        if (k === name) navs[k].classList.add('active');
+        else            navs[k].classList.remove('active');
+      }
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function showStatus(type, msg) {
+    statusEl.className = 'status show ' + type;
+    statusEl.innerHTML = msg;
+  }
+
+  function setLoading(kind, loading) {
+    if (loading) {
+      navRefresh.disabled = true;
+      navUpdate.disabled = true;
+      emptyLoadBtn.disabled = true;
+      if (kind === 'update') navUpdate.classList.add('loading');
+      if (kind === 'refresh') navRefresh.classList.add('loading');
+    } else {
+      navRefresh.disabled = false;
+      navUpdate.disabled = false;
+      emptyLoadBtn.disabled = false;
+      navRefresh.classList.remove('loading');
+      navUpdate.classList.remove('loading');
+    }
+  }
+
+  function jsonpRequest(action, extraParams) {
+    return new Promise((resolve, reject) => {
+      const urlStr = (APPS_SCRIPT_URL || '').trim();
+      if (!urlStr || urlStr.indexOf('http') !== 0) {
+        return reject(new Error('URL Apps Script belum diisi.'));
+      }
+      const cbName = 'jsonp_cb_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+      const timeout = setTimeout(() => {
+        cleanup();
+        reject(new Error('Request timeout (30 detik). Periksa koneksi & deploy.'));
+      }, 30000);
+      let script;
+      function cleanup() {
+        clearTimeout(timeout);
+        try { delete window[cbName]; } catch (e) { window[cbName] = undefined; }
+        if (script && script.parentNode) script.parentNode.removeChild(script);
+      }
+      window[cbName] = function(data) {
+        cleanup();
+        resolve(data);
+      };
+      const params = Object.assign({}, extraParams || {}, {
+        action: action,
+        callback: cbName,
+        _t: Date.now()
+      });
+      const sep = urlStr.indexOf('?') === -1 ? '?' : '&';
+      const query = Object.keys(params)
+        .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
+        .join('&');
+      script = document.createElement('script');
+      script.src = urlStr + sep + query;
+      script.async = true;
+      script.onerror = function() {
+        cleanup();
+        reject(new Error('Gagal memuat endpoint. Periksa URL & pastikan deploy "Anyone".'));
+      };
+      document.body.appendChild(script);
+    });
+  }
+
+  function updateLastUpdateInfo() {
+    lastUpdateTime = new Date();
+    const formatted = formatDateTime(lastUpdateTime);
+    document.getElementById('lastUpdateHeader').textContent = 'Update: ' + formatted;
+    document.getElementById('lastUpdateHome').textContent = formatted;
+    document.getElementById('dataLastUpdate').textContent = formatted;
+    statusDot.classList.remove('offline');
+    dataStatusDot.classList.remove('offline');
+  }
+
+  function updateCountInfo(filteredCount, totalCount, isFiltered) {
+    totalRowsCount = totalCount;
+    filteredRowsCount = filteredCount;
+    totalDataInfoEl.textContent = totalCount + ' baris';
+
+    if (isFiltered) {
+      filterCount.classList.add('show', 'active');
+      filterCountValue.textContent = filteredCount;
+      filterCountTotal.textContent = totalCount;
+    } else {
+      filterCount.classList.remove('show', 'active');
+    }
+
+    if (filteredCount > 0) dataBadge.classList.add('has-badge');
+    else                   dataBadge.classList.remove('has-badge');
+  }
+
+  function startAutoRefresh() {
+    stopAutoRefresh();
+    if (!autoRefreshEnabled || !hasLoadedOnce) return;
+    nextRefreshTime = Date.now() + AUTO_REFRESH_INTERVAL;
+    setCountdownBarState('active');
+    tickCountdownBar();
+    autoRefreshTimer = setInterval(() => { runRefresh(true); }, AUTO_REFRESH_INTERVAL);
+    countdownTimer = setInterval(tickCountdownBar, 1000);
+    document.getElementById('autoStatusText').textContent = 'Aktif';
+    document.getElementById('autoStatusText').classList.remove('off');
+    autoToggleEl.checked = true;
+  }
+
+  function stopAutoRefresh() {
+    if (autoRefreshTimer) { clearInterval(autoRefreshTimer); autoRefreshTimer = null; }
+    if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+    const el = document.getElementById('countdown');
+    if (el) el.textContent = 'OFF';
+    setCountdownBarState('off');
+  }
+
+  function onAutoToggleChange(el) {
+    autoRefreshEnabled = el.checked;
+    if (autoRefreshEnabled) {
+      if (hasLoadedOnce) {
+        startAutoRefresh();
+        showStatus('success', '✅ Auto update diaktifkan (setiap 5 menit).');
+      } else {
+        setCountdownBarState('loading');
+        showStatus('loading', '⏳ Menunggu data pertama...');
+      }
+    } else {
+      stopAutoRefresh();
+      document.getElementById('autoStatusText').textContent = 'Nonaktif';
+      document.getElementById('autoStatusText').classList.add('off');
+      showStatus('loading', '⏸️ Auto update dinonaktifkan.');
+    }
+  }
+
+  function renderTable(table, preserveState) {
+    currentTable = table;
+    if (!preserveState) {
+      sortState = { colIdx: null, dir: 'asc' };
+      filterState = {};
+      (table.filters || []).forEach(f => { filterState[f.key] = ''; });
+    } else {
+      (table.filters || []).forEach(f => {
+        if (!(f.key in filterState)) filterState[f.key] = '';
+      });
+    }
+    renderHeader();
+    renderFilterBar();
+    applyFilterAndSort();
+    tableWrap.classList.add('show');
+    emptyDataView.style.display = 'none';
+  }
+
+  function renderHeader() {
+    const t = currentTable;
+    if (!t || !t.headers || t.headers.length === 0) {
+      tableHead.innerHTML = '';
+      return;
+    }
+    const maxCols = visibleColumnCount(t.headers.length);
+    let html = '<tr>';
+    for (let i = 0; i < maxCols; i++) {
+      const h = t.headers[i];
+      const isSorted = sortState.colIdx === i;
+      const icon = isSorted ? (sortState.dir === 'asc' ? '▲' : '▼') : '⇅';
+      html += `<th class="${isSorted ? 'sorted' : ''}"
+                   onclick="toggleSort(${i})"
+                   title="Klik untuk urutkan">
+                 ${escapeHtml(h)}
+                 <span class="sort-icon">${icon}</span>
+               </th>`;
+    }
+    if (isNarrowView() && t.headers.length > maxCols) {
+      html += `<th style="width:34px;text-align:center;cursor:default;" title="Ketuk baris untuk detail">⋯</th>`;
+    }
+    html += '</tr>';
+    tableHead.innerHTML = html;
+  }
+
+  function toggleSort(colIdx) {
+    if (sortState.colIdx === colIdx) {
+      sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
+    } else {
+      sortState.colIdx = colIdx;
+      sortState.dir = 'asc';
+    }
+    renderHeader();
+    applyFilterAndSort();
+  }
+
+  function renderFilterBar() {
+    const t = currentTable;
+    const filters = t.filters || [];
+    if (filters.length === 0) {
+      filterBar.innerHTML = '';
+      filterCard.style.display = 'none';
+      return;
+    }
+    filterCard.style.display = 'block';
+
+    const items = filters.map(f => {
+      const currentVal = filterState[f.key] || '';
+      const opts = (t.filterOptions[f.key] || []).map(v =>
+        `<option value="${escapeHtml(v)}" ${v === currentVal ? 'selected' : ''}>${escapeHtml(v === '' ? '(kosong)' : v)}</option>`
+      ).join('');
+      const selClass = currentVal !== '' ? 'class="active"' : '';
+      return `
+        <div class="filter-item">
+          <label>${escapeHtml(f.name)}</label>
+          <select data-key="${f.key}" ${selClass} onchange="onFilterChange(this)">
+            <option value="">Semua</option>
+            ${opts}
+          </select>
+        </div>`;
+    }).join('');
+
+    filterBar.innerHTML = items +
+      `<button class="btn-reset" onclick="clearAllFilters()">🧹 Reset</button>`;
+  }
+
+  function onFilterChange(sel) {
+    const key = parseInt(sel.dataset.key, 10);
+    filterState[key] = sel.value;
+    if (sel.value !== '') sel.classList.add('active');
+    else sel.classList.remove('active');
+    applyFilterAndSort();
+  }
+
+  function clearAllFilters() {
+    Object.keys(filterState).forEach(k => { filterState[k] = ''; });
+    filterBar.querySelectorAll('select').forEach(s => {
+      s.value = '';
+      s.classList.remove('active');
+    });
+    applyFilterAndSort();
+  }
+
+  function applyFilterAndSort() {
+    const t = currentTable;
+    if (!t) return;
+    const totalCount = t.rows.length;
+    let rows = t.rows.slice();
+    let anyFilterActive = false;
+
+    Object.keys(filterState).forEach(k => {
+      const key = parseInt(k, 10);
+      const val = filterState[k];
+      if (val !== '' && val !== null && val !== undefined) {
+        anyFilterActive = true;
+        rows = rows.filter(r => (r.f && r.f[key] !== undefined ? r.f[key] : '') === val);
+      }
+    });
+
+    if (sortState.colIdx !== null) {
+      const dir = sortState.dir === 'asc' ? 1 : -1;
+      const ci = sortState.colIdx;
+      rows.sort((a, b) => compareValues(a.d[ci], b.d[ci]) * dir);
+    }
+
+    renderBody(rows);
+    updateCountInfo(rows.length, totalCount, anyFilterActive);
+  }
+
+  function compareValues(a, b) {
+    const sa = String(a ?? '').trim();
+    const sb = String(b ?? '').trim();
+    const na = parseFloat(sa.replace(',', '.'));
+    const nb = parseFloat(sb.replace(',', '.'));
+    const aIsNum = sa !== '' && !isNaN(na) && isFinite(na);
+    const bIsNum = sb !== '' && !isNaN(nb) && isFinite(nb);
+    if (aIsNum && bIsNum) return na - nb;
+    return sa.localeCompare(sb, 'id', { numeric: true, sensitivity: 'base' });
+  }
+
+  function renderBody(rows) {
+    const t = currentTable;
+    if (!rows || rows.length === 0) {
+      tableBody.innerHTML = `<tr><td colspan="${visibleColumnCount(t.headers.length)}" class="empty-msg">
+        Tidak ada data yang cocok.
+      </td></tr>`;
+      tableBadge.textContent = '0 baris · ' + t.headers.length + ' kolom';
+      return;
+    }
+    const maxCols = visibleColumnCount(t.headers.length);
+    const hasMore = isNarrowView() && t.headers.length > maxCols;
+
+    tableBody.innerHTML = rows.map(r => {
+      let cells = '';
+      for (let i = 0; i < maxCols; i++) {
+        cells += `<td>${escapeHtml(r.d[i])}</td>`;
+      }
+      if (hasMore) {
+        cells += `<td style="text-align:center;color:#9aa8c7;font-size:14px;">›</td>`;
+      }
+      return `<tr class="clickable">${cells}</tr>`;
+    }).join('');
+
+    const trs = tableBody.querySelectorAll('tr.clickable');
+    trs.forEach((tr, i) => { tr.__rowData = rows[i]; });
+    tableBadge.textContent = rows.length + ' baris · ' + t.headers.length + ' kolom';
+  }
+
+  function buildDetailCardHtml(t, row) {
+    const items = t.headers.map((h, i) => `
+      <div class="detail-item">
+        <span class="k">${escapeHtml(h)}</span>
+        <span class="v">${escapeHtml(row.d[i] ?? '')}</span>
+      </div>`).join('');
+    return `
+      <div class="detail-card">
+        <div class="detail-title">
+          <span>📄 Detail Data</span>
+          <button type="button" class="detail-close">✕ Tutup</button>
+        </div>
+        <div class="detail-grid">${items}</div>
+      </div>`;
+  }
+
+  function closeAllDetailRows() {
+    tableBody.querySelectorAll('tr.detail-row').forEach(el => el.remove());
+    tableBody.querySelectorAll('tr.row-active').forEach(el => el.classList.remove('row-active'));
+  }
+
+  function toggleDetailRow(tr) {
+    const isActive = tr.classList.contains('row-active');
+    closeAllDetailRows();
+    if (isActive) return;
+    const t = currentTable;
+    if (!t || !tr.__rowData) return;
+    const detailTr = document.createElement('tr');
+    detailTr.className = 'detail-row';
+    const td = document.createElement('td');
+    td.colSpan = visibleColumnCount(t.headers.length) +
+      ((isNarrowView() && t.headers.length > visibleColumnCount(t.headers.length)) ? 1 : 0);
+    td.innerHTML = buildDetailCardHtml(t, tr.__rowData);
+    detailTr.appendChild(td);
+    tr.parentNode.insertBefore(detailTr, tr.nextSibling);
+    tr.classList.add('row-active');
+  }
+
+  tableBody.addEventListener('click', function(e) {
+    if (e.target.closest('.detail-close')) { closeAllDetailRows(); return; }
+    const tr = e.target.closest('tr');
+    if (!tr) return;
+    if (tr.classList.contains('detail-row')) return;
+    if (!tr.classList.contains('clickable')) return;
+    toggleDetailRow(tr);
+  });
+
+  /* ==========================================================
+   * REFILL — STATE & RENDER
+   * ========================================================== */
+  function loadRefillSavedValues() {
+    try {
+      const raw = localStorage.getItem(REFILL_STORAGE_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (e) {}
+    return null;
+  }
+
+  function saveRefillValues() {
+    try {
+      const vals = {};
+      REFILL_CONFIG.fields.forEach(f => {
+        const el = document.getElementById('refill_' + fieldId(f.key));
+        if (el) vals[f.key] = el.value;
+      });
+      localStorage.setItem(REFILL_STORAGE_KEY, JSON.stringify(vals));
+    } catch (e) {}
+  }
+
+  function fieldId(key) { return key.replace(/\./g, '_'); }
+
+  function renderRefillForm() {
+    const saved = loadRefillSavedValues() || {};
+    refillFormContainer.innerHTML = REFILL_CONFIG.fields.map(f => {
+      const val = saved[f.key] !== undefined ? saved[f.key] : f.default;
+      const req = f.required ? '<span class="req">*</span>' : '';
+
+      if (f.type === 'urls') {
+        return `
+          <div class="refill-field">
+            <label for="refill_${fieldId(f.key)}">
+              ${escapeHtml(f.name)} ${req}
+              <span class="entry-key">${escapeHtml(f.key)}</span>
+            </label>
+            <textarea id="refill_${fieldId(f.key)}"
+                      data-key="${escapeHtml(f.key)}"
+                      rows="2"
+                      placeholder="${escapeHtml(f.placeholder)}"
+                      spellcheck="false"
+                      oninput="onRefillInputChange()">${escapeHtml(val)}</textarea>
+          </div>`;
+      }
+
+      const typeAttr = f.type === 'url' ? 'type="url" inputmode="url"' : 'type="text"';
+      return `
+        <div class="refill-field">
+          <label for="refill_${fieldId(f.key)}">
+            ${escapeHtml(f.name)} ${req}
+            <span class="entry-key">${escapeHtml(f.key)}</span>
+          </label>
+          <input id="refill_${fieldId(f.key)}"
+                 data-key="${escapeHtml(f.key)}"
+                 ${typeAttr}
+                 value="${escapeHtml(val)}"
+                 placeholder="${escapeHtml(f.placeholder)}"
+                 autocomplete="off"
+                 spellcheck="false"
+                 oninput="onRefillInputChange()" />
+        </div>`;
+    }).join('');
+
+    // Reset state generate
+    currentGeneratedUrl = null;
+    setOpenButtonState(false);
+    refillPreviewUrl.textContent = 'Klik ⚡ Generate untuk membuat URL...';
+  }
+
+  function onRefillInputChange() {
+    saveRefillValues();
+    refillStatus.className = 'refill-status';
+    REFILL_CONFIG.fields.forEach(f => {
+      const el = document.getElementById('refill_' + fieldId(f.key));
+      if (el && el.value.trim() !== '') el.classList.remove('invalid');
+    });
+
+    // Setiap perubahan input → invalidate URL yang sudah digenerate
+    if (currentGeneratedUrl) {
+      currentGeneratedUrl = null;
+      setOpenButtonState(false);
+      refillPreviewUrl.innerHTML = '<i>Input berubah — klik ⚡ Generate ulang untuk memperbarui URL.</i>';
+    }
+  }
+
+  function collectRefillValues() {
+    const vals = {};
+    REFILL_CONFIG.fields.forEach(f => {
+      const el = document.getElementById('refill_' + fieldId(f.key));
+      vals[f.key] = el ? el.value.trim() : '';
+    });
+    return vals;
+  }
+
+  function buildRefillUrl(values) {
+    const parts = ['usp=' + encodeURIComponent(REFILL_CONFIG.usp)];
+    REFILL_CONFIG.fields.forEach(f => {
+      parts.push(encodeURIComponent(f.key) + '=' + encodeURIComponent(values[f.key] || ''));
+    });
+    return REFILL_CONFIG.baseUrl + '?' + parts.join('&');
+  }
+
+  function setOpenButtonState(enabled) {
+    if (!btnOpenRefill) return;
+    btnOpenRefill.disabled = !enabled;
+  }
+
+  function showRefillStatus(type, msg) {
+    refillStatus.className = 'refill-status show ' + type;
+    refillStatus.innerHTML = msg;
+  }
+
+  /* ==========================================================
+   * REFILL — VALIDASI
+   * ========================================================== */
+  function validateRefillForm() {
+    const missing = [];
+    const invalidUrl = [];
+
+    REFILL_CONFIG.fields.forEach(f => {
+      const el = document.getElementById('refill_' + fieldId(f.key));
+      const val = (el.value || '').trim();
+      el.classList.remove('invalid');
+
+      if (f.required && !val) {
+        missing.push(f.name);
+        el.classList.add('invalid');
+        return;
+      }
+
+      if (f.type === 'url' && val) {
+        if (!/^https?:\/\//i.test(val)) {
+          invalidUrl.push(f.name + ' (harus diawali http:// atau https://)');
+          el.classList.add('invalid');
+        }
+      } else if (f.type === 'urls' && val) {
+        const parts = val.split(';').map(s => s.trim()).filter(Boolean);
+        const bad = parts.filter(p => !/^https?:\/\//i.test(p));
+        if (bad.length > 0) {
+          invalidUrl.push(f.name + ' (' + bad.length + ' URL tidak valid: ' + bad.join(', ') + ')');
+          el.classList.add('invalid');
+        }
+      }
+    });
+
+    if (missing.length > 0 || invalidUrl.length > 0) {
+      let msg = '❌ ';
+      if (missing.length) msg += 'Field wajib belum diisi: <b>' + missing.join(', ') + '</b>. ';
+      if (invalidUrl.length) msg += 'URL tidak valid: ' + invalidUrl.join('; ') + '.';
+      showRefillStatus('error', msg);
+      const firstInvalid = refillFormContainer.querySelector('.invalid');
+      if (firstInvalid) firstInvalid.focus();
+      return false;
+    }
+    return true;
+  }
+
+  /* ==========================================================
+   * TOMBOL 1: GENERATE
+   * Hanya membuat URL & menyimpannya. Tidak membuka tab.
+   * ========================================================== */
+  function generateRefillUrl() {
+    if (!validateRefillForm()) {
+      currentGeneratedUrl = null;
+      setOpenButtonState(false);
+      return;
+    }
+
+    saveRefillValues();
+    const vals = collectRefillValues();
+    const url = buildRefillUrl(vals);
+    currentGeneratedUrl = url;
+
+    // Tampilkan preview
+    refillPreviewUrl.textContent = url;
+    setOpenButtonState(true);
+
+    showRefillStatus('success',
+      '✅ URL berhasil di-generate. Klik <b>🚀 Buka</b> untuk membuka Google Form di tab baru.');
+  }
+
+  /* ==========================================================
+   * TOMBOL 2: BUKA
+   * Membuka URL hasil generate di tab baru.
+   * ========================================================== */
+  function openGeneratedUrl() {
+    if (!currentGeneratedUrl) {
+      showRefillStatus('error',
+        '❌ Belum ada URL. Klik <b>⚡ Generate</b> terlebih dahulu.');
+      return;
+    }
+
+    const win = window.open(currentGeneratedUrl, '_blank');
+    if (!win) {
+      copyToClipboard(currentGeneratedUrl);
+      showRefillStatus('error',
+        '❌ Pop-up diblokir browser. URL sudah disalin ke clipboard — paste di tab baru secara manual.');
+      return;
+    }
+    try { win.opener = null; } catch (e) {}
+    showRefillStatus('success',
+      '✅ Google Form berhasil dibuka di tab baru dengan data terisi.');
+  }
+
+  /* ==========================================================
+   * COPY & RESET
+   * ========================================================== */
+  function copyRefillUrl() {
+    if (!currentGeneratedUrl) {
+      showRefillStatus('error',
+        '❌ Belum ada URL. Klik <b>⚡ Generate</b> terlebih dahulu sebelum copy.');
+      return;
+    }
+    copyToClipboard(currentGeneratedUrl);
+    showRefillStatus('success', '📋 URL berhasil disalin ke clipboard.');
+  }
+
+  function resetRefillToDefault() {
+    REFILL_CONFIG.fields.forEach(f => {
+      const el = document.getElementById('refill_' + fieldId(f.key));
+      if (el) {
+        el.value = f.default;
+        el.classList.remove('invalid');
+      }
+    });
+    saveRefillValues();
+
+    currentGeneratedUrl = null;
+    setOpenButtonState(false);
+    refillPreviewUrl.textContent = 'Klik ⚡ Generate untuk membuat URL...';
+
+    refillStatus.className = 'refill-status';
+    showRefillStatus('success', '↺ Field berhasil dikembalikan ke default. Klik Generate ulang.');
+  }
+
+  function copyToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+    } else {
+      fallbackCopy(text);
+    }
+  }
+
+  function fallbackCopy(text) {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    } catch (e) {}
+  }
+
+  /* ==========================================================
+   * HANDLER: IMPORT / REFRESH
+   * ========================================================== */
+  function runImport() {
+    setLoading('update', true);
+    showStatus('loading', '⏳ Mengambil data & memperbarui tabel...');
+    jsonpRequest('import')
+      .then(res => {
+        setLoading('update', false);
+        if (res && res.success) {
+          showStatus('success', res.message);
+          renderTable(res.table);
+          updateLastUpdateInfo();
+          hasLoadedOnce = true;
+          flashCountdownBar();
+          startAutoRefresh();
+          if (activeView === 'home') setTimeout(() => showView('data'), 400);
+        } else {
+          showStatus('error', (res && res.message) || 'Gagal import.');
+        }
+      })
+      .catch(err => {
+        setLoading('update', false);
+        showStatus('error', '❌ ' + err.message);
+      });
+  }
+
+  function runRefresh(silent) {
+    if (!silent) {
+      setLoading('refresh', true);
+      showStatus('loading', '⏳ Memuat ulang tabel...');
+    }
+    jsonpRequest('refresh')
+      .then(res => {
+        if (!silent) setLoading('refresh', false);
+        if (res && res.success) {
+          if (silent) {
+            showStatus('success', '🔄 Auto-update berhasil: ' + (res.message || 'data diperbarui'));
+          } else {
+            showStatus('success', res.message);
+          }
+          renderTable(res.table, true);
+          updateLastUpdateInfo();
+          hasLoadedOnce = true;
+          flashCountdownBar();
+          startAutoRefresh();
+        } else {
+          if (!silent) showStatus('error', (res && res.message) || 'Refresh gagal.');
+        }
+      })
+      .catch(err => {
+        if (!silent) {
+          setLoading('refresh', false);
+          showStatus('error', '❌ ' + err.message);
+        }
+      });
+  }
+
+  /* ==========================================================
+   * INIT
+   * ========================================================== */
+  window.addEventListener('load', () => {
+    renderRefillForm();
+
+    const url = (APPS_SCRIPT_URL || '').trim();
+    if (!url || url.indexOf('http') !== 0) {
+      showView('data');
+      showStatus('error', '❌ URL Apps Script belum diisi. Hubungi admin.');
+      document.getElementById('emptyDataView').style.display = 'block';
+      emptyLoadBtn.disabled = true;
+      setCountdownBarState('off');
+      return;
+    }
+
+    showView('home');
+    setCountdownBarState('loading');
+
+    jsonpRequest('refresh')
+      .then(res => {
+        if (res && res.success && res.table) {
+          renderTable(res.table);
+          updateLastUpdateInfo();
+          hasLoadedOnce = true;
+          flashCountdownBar();
+          startAutoRefresh();
+        }
+      })
+      .catch(() => {
+        setCountdownBarState('loading');
+      });
+  });
+
+  let resizeTimer = null;
+  let lastNarrow = isNarrowView();
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const nowNarrow = isNarrowView();
+      if (nowNarrow !== lastNarrow) {
+        lastNarrow = nowNarrow;
+        if (currentTable) {
+          renderHeader();
+          applyFilterAndSort();
+        }
+      }
+    }, 180);
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && hasLoadedOnce && autoRefreshEnabled) {
+      if (nextRefreshTime && Date.now() >= nextRefreshTime) {
+        runRefresh(true);
+      }
+    }
+  });
+</script>
+</body>
+</html>
